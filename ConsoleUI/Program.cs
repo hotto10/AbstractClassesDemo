@@ -46,7 +46,31 @@ namespace ConsoleUI
 
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
+            #endregion  
+            var redMustang = new Car() { HasTrunk = true, Make = "Ford", Model = "Mustang", Year = "2018" };
+            var fastMoto = new Motorcycle() { HasSideCart = true, Make = "Honda", Model ="250", Year = "2012" };
+            Vehicle car3 = new Car() { HasTrunk = true, Make = "Chevy", Model = "Corvette", Year = "2012"};
+            Vehicle car4 = new Car() { HasTrunk = true, Make = "Nissan", Model = "Versa", Year = "2022" };
+            
+            var vehicles = new List<Vehicle>();
+            vehicles.Add(redMustang);
+            vehicles.Add(fastMoto);
+            vehicles.Add(car3);
+            vehicles.Add(car4);
+
+            foreach(var vehicle in vehicles)
+            {
+                Console.WriteLine($"{vehicle.Year}, {vehicle.Make}, {vehicle.Model}");
+                 
+            }
+            Console.WriteLine($"The {fastMoto.Make} {fastMoto.Model} has a side cart: {fastMoto.HasSideCart}");
+            Console.WriteLine($"The {redMustang.Make} {fastMoto.Model} has a trunk: {redMustang.HasTrunk}");
+            
+            redMustang.DriveAbstract();
+            fastMoto.DriveAbstract();
+            fastMoto.DriveVirtual();
+
+            
             Console.ReadLine();
         }
     }
